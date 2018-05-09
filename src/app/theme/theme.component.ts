@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Theme } from './theme';
-import { THEME } from './mock-theme';
+import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-theme',
@@ -8,17 +8,23 @@ import { THEME } from './mock-theme';
   styleUrls: ['./theme.component.css']
 })
 export class ThemeComponent implements OnInit {
-  themes = THEME;
+  themes : Theme[];
 
   selectedTheme: Theme;
 
-  constructor() { }
+  constructor(private themeService: ThemeService) { }
 
   ngOnInit() {
+    this.getThemes();
   }
 
   onSelect(theme: Theme): void {
     this.selectedTheme = theme;
+  }
+
+  getThemes(): void {
+    this.themeService.getThemes()
+      .subscribe(themes => this.themes = themes);
   }
 
 }

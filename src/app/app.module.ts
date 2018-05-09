@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ThemeComponent } from './theme/theme.component';
 import { MaterialComponent } from './material/material.component';
+import { ThemeService } from './theme/theme.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { MaterialComponent } from './material/material.component';
     NgbModule.forRoot(),
     BrowserModule
   ],
-  providers: [],
+  providers: [ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
