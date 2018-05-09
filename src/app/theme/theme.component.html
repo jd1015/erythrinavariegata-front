@@ -5,12 +5,4 @@
     <span class="badge">{{theme.themeId}}</span> {{theme.title}}
   </li>
 </ul>
-
-<div *ngIf="selectedTheme">
-<div><span>themeId: </span>{{selectedTheme.themeId}}</div>
-  <div class="form-group">
-    <label class="badge-info">title:
-      <input [(ngModel)]="selectedTheme.title" placeholder="title" class="form-control" >
-    </label>
-  </div>
-</div>
+<app-material [theme]="selectedTheme"></app-material>
