@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Theme } from './theme';
+import { THEME } from './mock-theme';
 
 @Component({
   selector: 'app-theme',
@@ -7,15 +8,17 @@ import { Theme } from './theme';
   styleUrls: ['./theme.component.css']
 })
 export class ThemeComponent implements OnInit {
-  theme:Theme = {
-    themeId:1,
-    title:'英語のお勉強',
-    content:'英単語と日本語のマッピング'
-  }
+  themes = THEME;
+
+  selectedTheme: Theme;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(theme: Theme): void {
+    this.selectedTheme = theme;
   }
 
 }
