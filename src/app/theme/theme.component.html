@@ -1,8 +1,7 @@
 <ul class="themes">
-  <li *ngFor="let theme of themes"
-    [class.selected]="theme === selectedTheme"
-    (click)="onSelect(theme)">
-    <span class="badge">{{theme.themeId}}</span> {{theme.title}}
+  <li *ngFor="let theme of themes">
+    <a routerLink="/detail/{{theme.themeId}}">
+      <span class="badge">{{theme.themeId}}</span> {{theme.title}}
+    </a>
   </li>
 </ul>
-<app-material [theme]="selectedTheme"></app-material>

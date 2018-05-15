@@ -7,17 +7,21 @@ import { AppComponent } from './app.component';
 import { ThemeComponent } from './theme/theme.component';
 import { MaterialComponent } from './material/material.component';
 import { ThemeService } from './theme/theme.service';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThemeComponent,
-    MaterialComponent
+    MaterialComponent,
+    DashboardComponent
   ],
   imports: [
     FormsModule,
     NgbModule.forRoot(),
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]

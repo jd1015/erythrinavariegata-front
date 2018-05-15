@@ -15,4 +15,10 @@ export class ThemeService {
   getThemes(): Observable<Theme[]> {
     return of(THEME);
   }
+
+  getTheme(themeId: number): Observable<Theme> {
+    // TODO: send the message _after_ fetching the hero
+    // this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(THEME.find(theme => theme.themeId === themeId));
+  }
 }

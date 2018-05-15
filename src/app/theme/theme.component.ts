@@ -10,16 +10,10 @@ import { ThemeService } from './theme.service';
 export class ThemeComponent implements OnInit {
   themes : Theme[];
 
-  selectedTheme: Theme;
-
   constructor(private themeService: ThemeService) { }
 
   ngOnInit() {
     this.getThemes();
-  }
-
-  onSelect(theme: Theme): void {
-    this.selectedTheme = theme;
   }
 
   getThemes(): void {
