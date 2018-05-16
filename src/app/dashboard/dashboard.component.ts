@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   }
   getThemes(): void {
     this.themeService.getThemes()
-    .subscribe(themes => this.themes = themes.slice(1, 5));
+    .subscribe(themes => this.themes = themes.slice(0, 4));
   }
 
 }
