@@ -1,7 +1,19 @@
+<div>
+  <label>Theme title:
+    <input #themeTitle />
+  </label>
+  <!-- (click) 入力値をadd()に渡したあと、入力をクリアする -->
+  <button (click)="add(themeTitle.value); themeTitle.value=''" class="btn btn-primary">
+    add
+  </button>
+</div>
+
 <ul class="themes">
   <li *ngFor="let theme of themes">
     <a routerLink="/detail/{{theme.themeId}}">
       <span class="badge">{{theme.themeId}}</span> {{theme.title}}
     </a>
+    <button class="delete" title="delete theme" class="btn btn-danger"
+    (click)="delete(theme)">delete</button>
   </li>
 </ul>

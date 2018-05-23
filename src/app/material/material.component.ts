@@ -32,4 +32,8 @@ export class MaterialComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+  save(): void {
+    this.themeService.updateTheme(this.theme)
+      .subscribe(() => this.goBack());
+  }
 }
