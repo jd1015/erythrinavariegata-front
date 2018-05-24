@@ -28,6 +28,15 @@ export class MaterialService {
     );
   }
 
+  /** POST: サーバーに新しいマテリアルを登録する */
+  addMaterial (material: Material): Observable<Material> {
+    const url = `${this.baseUrl}/${material.themeId}/material`;
+    return this.http.post<Material>(url, material, httpOptions).pipe(
+      //tap((theme: Theme) => this.log(`added theme w/ id=${theme.themeId}`)),
+      catchError(this.handleError<Material>('addTheme'))
+    );
+  }
+
   /**
    * 失敗したHttp操作を処理します。
    * アプリを持続させます。

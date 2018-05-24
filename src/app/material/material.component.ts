@@ -17,6 +17,8 @@ export class MaterialComponent implements OnInit {
   @Input() theme: Theme;
   materials : Material[];
   materialDisplay:boolean;
+  themeId : number;
+  material:Material;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,18 +28,17 @@ export class MaterialComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.themeId = +this.route.snapshot.paramMap.get('themeId');
     this.getTheme();
     this.getMaterial();
   }
 
   getTheme(): void {
-    const themeId = +this.route.snapshot.paramMap.get('themeId');
-    this.themeService.getTheme(themeId)
+    this.themeService.getTheme(this.themeId)
       .subscribe(theme => this.theme = theme);
   }
   getMaterial(): void {
-    const themeId = +this.route.snapshot.paramMap.get('themeId');
-    this.materialService.getMaterials(themeId)
+    this.materialService.getMaterials(this.themeId)
       .subscribe(materials => {
         this.materials = materials;
         if (this.materials.length === 0) {
@@ -53,5 +54,19 @@ export class MaterialComponent implements OnInit {
   save(): void {
     this.themeService.updateTheme(this.theme)
       .subscribe(() => this.goBack());
+  }
+  add(title: string, content: string): void {
+    title = title.trim();
+    content = content.trim();
+    if (!title && !content) { return; }
+    this.material = {
+      themeId:this.themeId,
+      title:title,
+      content:content
+    };
+    this.materialService.addMaterial(this.material)
+      .subscribe(material => {
+        this.getMaterial();
+    });
   }
 }
