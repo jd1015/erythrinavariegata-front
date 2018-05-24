@@ -8,3 +8,24 @@
   </div>
 </div>
 <button (click)="save()" class="btn btn-primary">save</button>
+<div *ngIf="materialDisplay">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>materialId</th>
+        <th>title</th>
+        <th>content</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let material of materials">
+        <td>{{material.materialId}}</td>
+        <td>{{material.title}}</td>
+        <td>{{material.content}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="!materialDisplay">
+  表示する内容がありません。
+</div>

@@ -18,6 +18,7 @@ export class ThemeService {
 
   constructor(private http: HttpClient) { }
   private themesUrl = 'http://192.168.2.201/theme';  // Web APIのURL
+  //private themesUrl = 'http://localhost:8080/theme';  // Web APIのURL
 
   getThemes(): Observable<Theme[]> {
     return this.http.get<Theme[]>(this.themesUrl)
