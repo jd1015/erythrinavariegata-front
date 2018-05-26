@@ -27,6 +27,7 @@
         <th>materialId</th>
         <th>title</th>
         <th>content</th>
+        <th>delete</th>
       </tr>
     </thead>
     <tbody>
@@ -34,6 +35,8 @@
         <td>{{material.materialId}}</td>
         <td>{{material.title}}</td>
         <td>{{material.content}}</td>
+        <td><button class="delete" title="delete material" class="btn btn-danger"
+        (click)="delete(material)">delete</button></td>
       </tr>
     </tbody>
   </table>

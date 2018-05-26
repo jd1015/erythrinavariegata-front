@@ -37,6 +37,18 @@ export class MaterialService {
     );
   }
 
+  /** DELETE: サーバーからマテリアルを削除 */
+  deleteMaterial (material: Material): Observable<Material> {
+    const themeId = material.themeId;
+    const materialId = material.materialId;
+    const url = `${this.baseUrl}/${themeId}/material/${materialId}`;
+
+    return this.http.delete<Material>(url, httpOptions).pipe(
+      tap(_ => this.log(`deleted material title=${material.title}`)),
+      catchError(this.handleError<Material>('deleteMaterial'))
+    );
+  }
+
   /**
    * 失敗したHttp操作を処理します。
    * アプリを持続させます。

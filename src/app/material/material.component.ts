@@ -70,4 +70,11 @@ export class MaterialComponent implements OnInit {
         this.getMaterial();
     });
   }
+  delete(material: Material): void {
+    this.materialService.deleteMaterial(material)
+      .subscribe(material => {
+        this.getMaterial();
+    });
+  }
+
 }
