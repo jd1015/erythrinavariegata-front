@@ -61,6 +61,7 @@ export class MaterialComponent implements OnInit {
     if (!title && !content) { return; }
     this.material = {
       themeId:this.themeId,
+      materialId:null,
       title:title,
       content:content
     };

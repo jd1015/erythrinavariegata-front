@@ -24,7 +24,7 @@ export class MaterialService {
     const url = `${this.baseUrl}/${themeId}/material`;
     return this.http.get<Material[]>(url).pipe(
       tap(_ => this.log(`fetched theme themeId=${themeId}`)),
-      catchError(this.handleError<Material>(`getTheme themeId=${themeId}`))
+      catchError(this.handleError<Material[]>(`getTheme themeId=${themeId}`))
     );
   }
 
