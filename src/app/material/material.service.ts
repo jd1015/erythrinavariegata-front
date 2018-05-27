@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Material } from './material';
+import * as constant from '../common/constant';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,8 +17,7 @@ const httpOptions = {
 export class MaterialService {
 
   constructor(private http: HttpClient) { }
-  //private baseUrl = 'http://localhost:8080/theme' // web APIのURL
-  private baseUrl = 'http://192.168.2.201/theme' // web APIのURL
+  private baseUrl = constant.API_URL + '/theme';  // Web APIのURL
 
   /** IDによりマテリアルを取得する。見つからなかった場合は404を返却する。 */
   getMaterials(themeId: number): Observable<Material[]> {
