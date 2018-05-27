@@ -2,8 +2,11 @@
   <label>Theme title:
     <input #themeTitle />
   </label>
+  <label>Theme content:
+    <input #themeContent />
+  </label>
   <!-- (click) 入力値をadd()に渡したあと、入力をクリアする -->
-  <button (click)="add(themeTitle.value); themeTitle.value=''" class="btn btn-primary">
+  <button (click)="add(themeTitle.value, themeContent.value); themeTitle.value='';themeContent.value=''" class="btn btn-primary">
     add
   </button>
 </div>

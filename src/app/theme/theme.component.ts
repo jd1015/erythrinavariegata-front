@@ -20,10 +20,11 @@ export class ThemeComponent implements OnInit {
     this.themeService.getThemes()
       .subscribe(themes => this.themes = themes);
   }
-  add(title: string): void {
+  add(title: string, content: string): void {
     title = title.trim();
+    content = content.trim();
     if (!title) { return; }
-      this.themeService.addTheme({ title } as Theme)
+      this.themeService.addTheme({ title, content } as Theme)
         .subscribe(theme => {
         //this.themes.push(theme); // FIXME 追加したAPIの返却を行った後に表示させる
     });
