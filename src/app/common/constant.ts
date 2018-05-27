@@ -1,3 +1,5 @@
+import { environment } from '../../environments/environment';
+
 export class Constant {
-    public static readonly API_URL = 'http://localhost:8080';
+    public static readonly API_URL = environment.apiUrl;
 }
