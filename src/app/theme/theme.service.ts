@@ -6,7 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Theme } from './theme';
 import { THEME } from './mock-theme';
-import * as constant from '../common/constant';
+import { Constant } from '../common/constant';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,7 +18,7 @@ const httpOptions = {
 export class ThemeService {
 
   constructor(private http: HttpClient) { }
-  private themesUrl = constant.API_URL + '/theme';  // Web APIのURL
+  private themesUrl = Constant.API_URL + '/theme';  // Web APIのURL
 
   getThemes(): Observable<Theme[]> {
     return this.http.get<Theme[]>(this.themesUrl)

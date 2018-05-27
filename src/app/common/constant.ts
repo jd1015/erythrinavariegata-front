@@ -1,1 +1,3 @@
-export const API_URL = 'http://localhost:8080';
+export class Constant {
+    public static readonly API_URL = 'http://localhost:8080';
+}
