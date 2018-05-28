@@ -26,6 +26,7 @@ export class ThemeComponent implements OnInit {
     if (!title) { return; }
       this.themeService.addTheme({ title, content } as Theme)
         .subscribe(theme => {
+          this.getThemes();
         //this.themes.push(theme); // FIXME 追加したAPIの返却を行った後に表示させる
     });
   }
