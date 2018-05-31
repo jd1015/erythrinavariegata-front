@@ -1,56 +1,56 @@
 <div class="row">
-<div class="col-sm">
-<button (click)="goBack()" class="btn btn-default">go back</button>
-<div *ngIf="theme">
-<div><span>themeId: </span>{{theme.themeId}}</div>
-  <div class="form-group">
-    <label class="badge-info">title:
-      <input [(ngModel)]="theme.title" placeholder="title" class="form-control" >
-    </label>
-    <label class="badge-info">content:
-      <input [(ngModel)]="theme.content" placeholder="content" class="form-control" >
-    </label>
+  <div class="col-sm">
+    <button (click)="goBack()" class="btn btn-default">go back</button>
+    <div *ngIf="theme">
+      <div><span>themeId: </span>{{theme.themeId}}</div>
+      <div class="form-group">
+        <label class="badge-info">title:
+          <input [(ngModel)]="theme.title" placeholder="title" class="form-control" >
+        </label>
+        <label class="badge-info">content:
+          <input [(ngModel)]="theme.content" placeholder="content" class="form-control" >
+        </label>
+      </div>
+    </div>
+    <button (click)="save()" class="btn btn-primary">save</button>
+    <div>
+      <label>Material title:
+        <input #materialTitle />
+      </label>
+      <label>Material content:
+        <input #materialContent />
+      </label>
+      <!-- (click) 入力値をadd()に渡したあと、入力をクリアする -->
+      <button (click)="add(materialTitle.value, materialContent.value); materialTitle.value=''; materialContent.value='';" class="btn btn-primary">
+        add
+      </button>
+    </div>
+    <div *ngIf="materialDisplay">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>materialId</th>
+            <th>title</th>
+            <th>content</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let material of materials">
+            <td>{{material.materialId}}</td>
+            <td>{{material.title}}</td>
+            <td>{{material.content}}</td>
+            <td><button class="delete" title="delete material" class="btn btn-danger"
+              (click)="delete(material)">delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="!materialDisplay">
+        表示する内容がありません。
+    </div>
   </div>
-</div>
-<button (click)="save()" class="btn btn-primary">save</button>
-<div>
-  <label>Material title:
-    <input #materialTitle />
-  </label>
-  <label>Material content:
-    <input #materialContent />
-  </label>
-  <!-- (click) 入力値をadd()に渡したあと、入力をクリアする -->
-  <button (click)="add(materialTitle.value, materialContent.value); materialTitle.value=''; materialContent.value='';" class="btn btn-primary">
-    add
-  </button>
-</div>
-<div *ngIf="materialDisplay">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>materialId</th>
-        <th>title</th>
-        <th>content</th>
-        <th>delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let material of materials">
-        <td>{{material.materialId}}</td>
-        <td>{{material.title}}</td>
-        <td>{{material.content}}</td>
-        <td><button class="delete" title="delete material" class="btn btn-danger"
-        (click)="delete(material)">delete</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div *ngIf="!materialDisplay">
-  表示する内容がありません。
-</div>
-</div>
-<div class="col-sm">
-  <app-materialdetail></app-materialdetail>
-</div>
+  <div class="col-sm">
+    <app-materialdetail></app-materialdetail>
+  </div>
 </div>
