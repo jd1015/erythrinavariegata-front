@@ -10,13 +10,15 @@ import { MaterialComponent } from './material/material.component';
 import { ThemeService } from './theme/theme.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MaterialdetailComponent } from './material/materialdetail/materialdetail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThemeComponent,
     MaterialComponent,
-    DashboardComponent
+    DashboardComponent,
+    MaterialdetailComponent
   ],
   imports: [
     HttpClientModule,
