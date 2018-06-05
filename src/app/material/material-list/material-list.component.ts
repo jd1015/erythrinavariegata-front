@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -6,6 +6,7 @@ import { Theme } from '../../theme/theme';
 import { Material } from '../material';
 import { ThemeService }  from '../../theme/theme.service';
 import { MaterialService }  from '../material.service';
+import { MaterialdetailComponent } from '../materialdetail/materialdetail.component';
 
 @Component({
   selector: 'app-material-list',
@@ -19,6 +20,8 @@ export class MaterialListComponent implements OnInit {
   materialDisplay:boolean;
   themeId : number;
   material:Material;
+  @ViewChild(MaterialdetailComponent)
+  private materialdetailComponent: MaterialdetailComponent;
 
   constructor(
     private route: ActivatedRoute,
@@ -80,5 +83,9 @@ export class MaterialListComponent implements OnInit {
       .subscribe(material => {
         this.getMaterial();
     });
+  }
+
+  onClick(material: Material){
+    this.materialdetailComponent.getMaterial(material);
   }
 }

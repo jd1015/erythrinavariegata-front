@@ -1,3 +1,5 @@
-<p>
-  materialdetail works!
-</p>
+<div *ngIf="material; else elseBlock">
+  {{material.title}}<p>
+  {{material.content}}
+</div>
+<ng-template #elseBlock>materialIdをクリックすると詳細が表示されます。</ng-template>

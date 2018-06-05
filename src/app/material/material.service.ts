@@ -49,6 +49,15 @@ export class MaterialService {
     );
   }
 
+  /** マテリアルを取得する。見つからなかった場合は404を返却する。 */
+  getMaterial(themeId: number, materialId: number): Observable<Material> {
+    const url = `${this.baseUrl}/${themeId}/material/${materialId}`;
+    return this.http.get<Material>(url).pipe(
+      tap(_ => this.log(`fetched theme themeId=${themeId}`)),
+      catchError(this.handleError<Material>(`getTheme themeId=${themeId}`))
+    );
+  }
+
   /**
    * 失敗したHttp操作を処理します。
    * アプリを持続させます。
