@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialRoutingModule } from './material-routing.module';
 import { MaterialComponent }  from './material.component';
 import { MaterialdetailComponent }  from './materialdetail/materialdetail.component';
+import { MaterialListComponent } from './material-list/material-list.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { MaterialdetailComponent }  from './materialdetail/materialdetail.compon
     MaterialRoutingModule,
     FormsModule
   ],
-  declarations: [MaterialComponent,MaterialdetailComponent]
+  declarations: [MaterialComponent,MaterialdetailComponent, MaterialListComponent]
 })
 export class MaterialModule { }
