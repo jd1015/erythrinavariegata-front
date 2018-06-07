@@ -5,7 +5,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Theme } from './theme';
-import { THEME } from './mock-theme';
 import { Constant } from '../common/constant';
 
 const httpOptions = {
