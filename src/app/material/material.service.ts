@@ -58,6 +58,17 @@ export class MaterialService {
     );
   }
 
+  /** マテリアルを更新する。 */
+  putMaterial(material: Material): Observable<Material> {
+    const themeId = material.themeId;
+    const materialId = material.materialId;
+    const url = `${this.baseUrl}/${themeId}/material/${materialId}`;
+    return this.http.put<Material>(url, material, httpOptions).pipe(
+      tap(_ => this.log(`fetched theme themeId=${themeId}`)),
+      catchError(this.handleError<Material>(`getTheme themeId=${themeId}`))
+    );
+  }
+
   /**
    * 失敗したHttp操作を処理します。
    * アプリを持続させます。
