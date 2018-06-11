@@ -1,20 +1,24 @@
 <button *ngIf="!isEditMode && material" (click)="onEdit()" class="btn btn-primary mb-3">編集</button>
 <button *ngIf="isEditMode" (click)="onCancel()" class="btn btn-warning mb-3">キャンセル</button>
-<div *ngIf="material; else elseBlock">
+<button *ngIf="isEditMode" (click)="onUpdate()" class="btn btn-primary mb-3">更新</button>
+<button *ngIf="isRegisterMode" (click)="onRegister()" class="btn btn-primary mb-3">登録</button>
+<div>
   <div class="card border-light mb-3" style="max-width: 60rem;">
     <div class="card-header">title</div>
+    <textarea *ngIf="isRegisterMode" class="form-control" [(ngModel)]="inputMaterial.title" rows="3"></textarea>
     <textarea *ngIf="isEditMode" class="form-control" [(ngModel)]="inputMaterial.title" rows="3"></textarea>
-    <div *ngIf="!isEditMode" class="card-body">
+    <div *ngIf="!isEditMode && material" class="card-body">
       <p class="card-text">{{material.title}}</p>
     </div>
   </div>
   <div class="card border-light mb-3" style="max-width: 60rem;">
     <div class="card-header">content</div>
+    <textarea *ngIf="isRegisterMode" class="form-control" [(ngModel)]="inputMaterial.content" rows="3"></textarea>
     <textarea *ngIf="isEditMode" class="form-control" [(ngModel)]="inputMaterial.content" rows="3"></textarea>
-    <div *ngIf="!isEditMode" class="card-body">
+    <div *ngIf="!isEditMode && material" class="card-body">
       <p class="card-text">{{material.content}}</p>
     </div>
+    <textarea *ngIf="isRegisterEditMode" class="form-control" [(ngModel)]="inputMaterial.content" rows="3"></textarea>
   </div>
 </div>
-<button *ngIf="isEditMode" (click)="onUpdate()" class="btn btn-primary mb-3">更新</button>
-<ng-template #elseBlock><div>materialIdをクリックすると詳細が表示されます。</div></ng-template>
+<div *ngIf="!material">materialIdをクリックすると詳細が表示されます。</div>

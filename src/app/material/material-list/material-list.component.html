@@ -13,18 +13,6 @@
       </div>
     </div>
     <button (click)="save()" class="btn btn-primary">save</button>
-    <div>
-      <label>Material title:
-        <input #materialTitle />
-      </label>
-      <label>Material content:
-        <input #materialContent />
-      </label>
-      <!-- (click) 入力値をadd()に渡したあと、入力をクリアする -->
-      <button (click)="add(materialTitle.value, materialContent.value); materialTitle.value=''; materialContent.value='';" class="btn btn-primary">
-        add
-      </button>
-    </div>
     <div *ngIf="materialDisplay">
       <table class="table">
         <thead>
