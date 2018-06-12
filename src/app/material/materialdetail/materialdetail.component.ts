@@ -29,7 +29,12 @@ export class MaterialdetailComponent implements OnInit {
 
   ngOnInit() {
     this.themeId = +this.route.snapshot.paramMap.get('themeId');
-    this.inputMaterial = {themeId: this.themeId};
+    this.inputMaterial = {
+      themeId: this.themeId,
+      materialId: null,
+      title: null,
+      content: null
+    };
   }
 
   getMaterial(material: Material): void {
@@ -68,7 +73,12 @@ export class MaterialdetailComponent implements OnInit {
     this.materialService.putMaterial(this.inputMaterial)
       .subscribe(material => {
         this.material = undefined;
-        this.inputMaterial = {};
+        this.inputMaterial = {
+          themeId: this.themeId,
+          materialId: null,
+          title: null,
+          content: null
+        };
         this.isEditMode = false;
         this.isRegisterMode = true;
       });
@@ -81,7 +91,12 @@ export class MaterialdetailComponent implements OnInit {
   onRegister(){
     this.materialService.addMaterial(this.inputMaterial)
       .subscribe(material => {
-        this.inputMaterial = {themeId: this.themeId};
+        this.inputMaterial = {
+          themeId: this.themeId,
+          materialId: null,
+          title: null,
+          content: null
+        };
         this.isEditMode = false;
         this.isRegisterMode = true;
       });
