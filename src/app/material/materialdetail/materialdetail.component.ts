@@ -19,6 +19,8 @@ export class MaterialdetailComponent implements OnInit {
   isEditMode:boolean = false;
   /** 登録フラグ */
   isRegisterMode:boolean = true;
+  /** 表示フラグ */
+  isDisplayMode:boolean = false;
   /** テーマID */
   themeId : number;
 
@@ -43,6 +45,7 @@ export class MaterialdetailComponent implements OnInit {
         this.material = material;
         this.isRegisterMode = false;
         this.isEditMode = false;
+        this.isDisplayMode = true;
       });
   }
 
@@ -57,6 +60,8 @@ export class MaterialdetailComponent implements OnInit {
       content: this.material.content
     }
     this.isEditMode = true;
+    this.isRegisterMode = false;
+    this.isDisplayMode = false;
   }
 
   /**
@@ -64,6 +69,8 @@ export class MaterialdetailComponent implements OnInit {
   */
   onCancel(){
     this.isEditMode = false;
+    this.isDisplayMode = true;
+    this.isRegisterMode = false;
   }
 
   /**
@@ -81,6 +88,7 @@ export class MaterialdetailComponent implements OnInit {
         };
         this.isEditMode = false;
         this.isRegisterMode = true;
+        this.isDisplayMode = false;
       });
 
   }
@@ -99,6 +107,7 @@ export class MaterialdetailComponent implements OnInit {
         };
         this.isEditMode = false;
         this.isRegisterMode = true;
+        this.isDisplayMode = false;
       });
   }
 }
