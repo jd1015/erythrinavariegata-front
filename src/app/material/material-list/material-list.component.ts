@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
 import { Theme } from '../../theme/theme';
 import { Material } from '../material';
@@ -26,7 +25,6 @@ export class MaterialListComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private themeService: ThemeService,
-    private location: Location,
     private materialService: MaterialService
   ) { }
 
@@ -51,10 +49,6 @@ export class MaterialListComponent implements OnInit {
           this.materialDisplay = true;
         }
       });
-  }
-
-  goBack(): void {
-    this.location.back();
   }
 
   save(): void {
