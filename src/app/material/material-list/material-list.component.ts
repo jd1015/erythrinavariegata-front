@@ -53,7 +53,7 @@ export class MaterialListComponent implements OnInit {
 
   save(): void {
     this.themeService.updateTheme(this.theme)
-      .subscribe(() => this.goBack());
+      .subscribe(() => );
   }
 
   add(title: string, content: string): void {
