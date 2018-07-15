@@ -73,10 +73,13 @@ export class MaterialListComponent implements OnInit {
   }
 
   delete(material: Material): void {
-    this.materialService.deleteMaterial(material)
-      .subscribe(material => {
-        this.getMaterial();
-    });
+    var isOk = confirm('削除しますか？');
+    if (isOk) {
+      this.materialService.deleteMaterial(material)
+        .subscribe(material => {
+          this.getMaterial();
+      });
+    }
   }
 
   onClick(material: Material){
