@@ -16,11 +16,11 @@ export class MaterialdetailComponent implements OnInit {
   inputMaterial: Material;
 
   /** 編集フラグ */
-  isEditMode: false;
+  isEditMode = false;
   /** 登録フラグ */
-  isRegisterMode: true;
+  isRegisterMode = true;
   /** 表示フラグ */
-  isDisplayMode: false;
+  isDisplayMode = false;
   /** テーマID */
   themeId: number;
 
