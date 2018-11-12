@@ -48,7 +48,7 @@ export class ThemeService {
   /** POST: サーバーに新しいテーマを登録する */
   addTheme (theme: Theme): Observable<Theme> {
     return this.http.post<Theme>(this.themesUrl, theme, httpOptions).pipe(
-      //tap((theme: Theme) => this.log(`added theme w/ id=${theme.themeId}`)),
+      // tap((theme: Theme) => this.log(`added theme w/ id=${theme.themeId}`)),
       catchError(this.handleError<Theme>('addTheme'))
     );
   }
@@ -84,7 +84,7 @@ export class ThemeService {
   }
   /** HeroServiceのメッセージをMessageServiceを使って記録 */
   private log(message: string) {
-    //this.messageService.add('HeroService: ' + message);
+    // this.messageService.add('HeroService: ' + message);
   }
 
 }

@@ -32,7 +32,7 @@ export class MaterialService {
   addMaterial (material: Material): Observable<Material> {
     const url = `${this.baseUrl}/${material.themeId}/material`;
     return this.http.post<Material>(url, material, httpOptions).pipe(
-      //tap((theme: Theme) => this.log(`added theme w/ id=${theme.themeId}`)),
+      // tap((theme: Theme) => this.log(`added theme w/ id=${theme.themeId}`)),
       catchError(this.handleError<Material>('addTheme'))
     );
   }
@@ -89,7 +89,7 @@ export class MaterialService {
   }
   /** HeroServiceのメッセージをMessageServiceを使って記録 */
   private log(message: string) {
-    //this.messageService.add('HeroService: ' + message);
+    // this.messageService.add('HeroService: ' + message);
   }
 
 }

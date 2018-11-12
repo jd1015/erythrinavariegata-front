@@ -19,9 +19,13 @@ export class DashboardComponent implements OnInit {
     this.themeService.getThemes()
     .subscribe(themes => {
       // 件数で降順にソート
-      themes.sort(function(a, b){
-        if (a.materialCount > b.materialCount) return -1;
-        if (a.materialCount < b.materialCount) return 1;
+      themes.sort(function(a, b) {
+        if (a.materialCount > b.materialCount) {
+          return -1;
+        }
+        if (a.materialCount < b.materialCount) {
+          return 1;
+        }
         return 0;
       });
       this.themes = themes;

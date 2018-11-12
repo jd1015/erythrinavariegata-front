@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MaterialComponent }  from './material.component';
+import { MaterialComponent } from './material.component';
 
 const routes: Routes = [
   { path: '', component: MaterialComponent }

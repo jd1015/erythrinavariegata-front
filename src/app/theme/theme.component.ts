@@ -8,7 +8,7 @@ import { ThemeService } from './theme.service';
   styleUrls: ['./theme.component.scss']
 })
 export class ThemeComponent implements OnInit {
-  themes : Theme[];
+  themes: Theme[];
 
   constructor(private themeService: ThemeService) { }
 
@@ -27,7 +27,7 @@ export class ThemeComponent implements OnInit {
       this.themeService.addTheme({ title, content } as Theme)
         .subscribe(theme => {
           this.getThemes();
-        //this.themes.push(theme); // FIXME 追加したAPIの返却を行った後に表示させる
+        // this.themes.push(theme); // FIXME 追加したAPIの返却を行った後に表示させる
     });
   }
   delete(theme: Theme): void {

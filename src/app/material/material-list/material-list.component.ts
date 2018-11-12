@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Theme } from '../../theme/theme';
 import { Material } from '../material';
-import { ThemeService }  from '../../theme/theme.service';
-import { MaterialService }  from '../material.service';
+import { ThemeService } from '../../theme/theme.service';
+import { MaterialService } from '../material.service';
 import { MaterialdetailComponent } from '../materialdetail/materialdetail.component';
 
 @Component({
@@ -15,10 +15,10 @@ import { MaterialdetailComponent } from '../materialdetail/materialdetail.compon
 export class MaterialListComponent implements OnInit {
 
   @Input() theme: Theme;
-  materials : Material[];
-  materialDisplay:boolean;
-  themeId : number;
-  material:Material;
+  materials: Material[];
+  materialDisplay: boolean;
+  themeId: number;
+  material: Material;
   @ViewChild(MaterialdetailComponent)
   private materialdetailComponent: MaterialdetailComponent;
 
@@ -61,10 +61,10 @@ export class MaterialListComponent implements OnInit {
     content = content.trim();
     if (!title && !content) { return; }
     this.material = {
-      themeId:this.themeId,
-      materialId:null,
-      title:title,
-      content:content
+      themeId: this.themeId,
+      materialId: null,
+      title: title,
+      content: content
     };
     this.materialService.addMaterial(this.material)
       .subscribe(material => {
@@ -73,16 +73,16 @@ export class MaterialListComponent implements OnInit {
   }
 
   delete(material: Material): void {
-    var isOk = confirm('削除しますか？');
+    const isOk = confirm('削除しますか？');
     if (isOk) {
       this.materialService.deleteMaterial(material)
-        .subscribe(material => {
+        .subscribe(() => {
           this.getMaterial();
       });
     }
   }
 
-  onClick(material: Material){
+  onClick(material: Material) {
     this.materialdetailComponent.getMaterial(material);
   }
 }

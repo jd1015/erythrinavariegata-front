@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { MaterialService }  from '../material.service';
+import { MaterialService } from '../material.service';
 import { Material } from '../material';
 
 @Component({
@@ -11,18 +11,18 @@ import { Material } from '../material';
 })
 export class MaterialdetailComponent implements OnInit {
 
-  material:Material;
+  material: Material;
   /** 編集中のマテリアル */
-  inputMaterial:Material;
+  inputMaterial: Material;
 
   /** 編集フラグ */
-  isEditMode:boolean = false;
+  isEditMode: false;
   /** 登録フラグ */
-  isRegisterMode:boolean = true;
+  isRegisterMode: true;
   /** 表示フラグ */
-  isDisplayMode:boolean = false;
+  isDisplayMode: false;
   /** テーマID */
-  themeId : number;
+  themeId: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,7 +41,7 @@ export class MaterialdetailComponent implements OnInit {
 
   getMaterial(material: Material): void {
     this.materialService.getMaterial(material.themeId, material.materialId)
-      .subscribe(material => {
+      .subscribe(() => {
         this.material = material;
         this.isRegisterMode = false;
         this.isEditMode = false;
@@ -52,13 +52,13 @@ export class MaterialdetailComponent implements OnInit {
   /**
   * 編集ボタンが押されたときの挙動
   */
-  onEdit(){
+  onEdit() {
     this.inputMaterial = {
       themeId: this.material.themeId,
       materialId: this.material.materialId,
       title: this.material.title,
       content: this.material.content
-    }
+    };
     this.isEditMode = true;
     this.isRegisterMode = false;
     this.isDisplayMode = false;
@@ -67,7 +67,7 @@ export class MaterialdetailComponent implements OnInit {
   /**
   * キャンセルボタンが押されたときの挙動
   */
-  onCancel(){
+  onCancel() {
     this.isEditMode = false;
     this.isDisplayMode = true;
     this.isRegisterMode = false;
@@ -76,7 +76,7 @@ export class MaterialdetailComponent implements OnInit {
   /**
   * 更新が押されたときの挙動
   */
-  onUpdate(){
+  onUpdate() {
     this.materialService.putMaterial(this.inputMaterial)
       .subscribe(material => {
         this.material = undefined;
@@ -96,7 +96,7 @@ export class MaterialdetailComponent implements OnInit {
   /**
   * 登録が押されたときの挙動
   */
-  onRegister(){
+  onRegister() {
     this.materialService.addMaterial(this.inputMaterial)
       .subscribe(material => {
         this.inputMaterial = {
