@@ -1,17 +1,17 @@
 <div class="row">
   <div class="col-sm p-2">
-    <div *ngIf="theme">
+    <form *ngIf="theme">
       <div><span>themeId: </span>{{theme.themeId}}</div>
       <div class="form-group">
-        <label class="badge-info">title:
-          <input [(ngModel)]="theme.title" placeholder="title" class="form-control" >
-        </label>
-        <label class="badge-info">content:
-          <input [(ngModel)]="theme.content" placeholder="content" class="form-control" >
-        </label>
+        <label for="title">title</label>
+        <input [(ngModel)]="theme.title" placeholder="title" class="form-control" name="title" id="title">
       </div>
-    </div>
+      <div class="form-group">
+        <label for="content">content</label>
+        <input [(ngModel)]="theme.content" placeholder="content" class="form-control" name="content" id="content">
+      </div>
     <button (click)="save()" class="btn btn-primary">save</button>
+    </form>
     <div *ngIf="materialDisplay">
       <table class="table">
         <thead>
