@@ -3,4 +3,5 @@ export class Theme {
   title: string;
   content: string;
   materialCount: number;
+  contentDisplayFlg: boolean;
 }
