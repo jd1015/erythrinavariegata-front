@@ -6,6 +6,7 @@ import { Material } from '../material';
 import { ThemeService } from '../../theme/theme.service';
 import { MaterialService } from '../material.service';
 import { MaterialdetailComponent } from '../materialdetail/materialdetail.component';
+import { MaterialList } from '../materialList';
 
 @Component({
   selector: 'app-material-list',
@@ -84,5 +85,28 @@ export class MaterialListComponent implements OnInit {
 
   onClick(material: Material) {
     this.materialdetailComponent.getMaterial(material);
+  }
+
+  reverse() {
+    interface material {
+      materialId: number,
+      title: string,
+      content: string };
+    const materials: material[] = new Array();
+    for (var material of this.materials) {
+      const mt: material = {
+        materialId: material.materialId,
+        title: material.content,
+        content: material.title
+      }
+      materials.push(mt);
+    }
+    const materialList: MaterialList = {
+      materialList: materials
+    }
+    this.materialService.putMaterialList(this.theme.themeId, materialList)
+      .subscribe(() => {
+        this.getMaterial();
+    });
   }
 }
