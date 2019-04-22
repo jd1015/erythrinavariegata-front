@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Material } from './material';
 import { Constant } from '../common/constant';
+import { MaterialList } from './materialList';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -65,6 +66,15 @@ export class MaterialService {
     return this.http.put<Material>(url, material, httpOptions).pipe(
       tap(_ => this.log(`fetched theme themeId=${themeId}`)),
       catchError(this.handleError<Material>(`getTheme themeId=${themeId}`))
+    );
+  }
+
+  /** マテリアルListを更新する。 */
+  putMaterialList(themeId: number, materialList: MaterialList): Observable<MaterialList> {
+    const url = `${this.baseUrl}/${themeId}/material/list`;
+    return this.http.put<MaterialList>(url, materialList, httpOptions).pipe(
+      tap(_ => this.log(`fetched theme themeId=${themeId}`)),
+      catchError(this.handleError<MaterialList>(`putMaterialList themeId=${themeId}`))
     );
   }
 
