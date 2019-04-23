@@ -31,7 +31,7 @@
           <tr *ngFor="let material of materials">
             <td><button (click)="onClick(material)" class="btn btn-link">{{material.materialId}}</button></td>
             <td>{{material.title}}</td>
-            <td>{{material.content}}</td>
+            <td><ng-container *ngIf="theme.contentDisplayFlg">{{material.content}}</ng-container></td>
             <td><button class="delete" title="delete material" class="btn btn-danger"
               (click)="delete(material)">delete</button></td>
           </tr>
